@@ -1,3 +1,8 @@
 node_modules
+dist
+todo.txt
 firstChild/node_modules
+firstChild/dist
+
 secondChild/node_modules
+secondChild/dist
