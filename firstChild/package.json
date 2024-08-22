@@ -1,0 +1,15 @@
+{
+  "name": "firstchild",
+  "version": "1.0.0",
+  "description": "first child app running inside the container app",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "andrian crestian",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
