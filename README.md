@@ -1,5 +1,9 @@
 # Micro Frontend with React, TypeScript, and Webpack Module Federation
 
+**P.S.** If you find this project helpful, please consider giving it a star! ⭐
+
+Let's start!
+
 This project demonstrates the implementation of a micro frontend architecture using React, TypeScript, and Webpack 5 with Module Federation. It consists of a container app and two independent child apps.
 
 ## 🚀 Features
