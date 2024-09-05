@@ -1,0 +1,38 @@
+/* Light theme */
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+}
+
+/* Dark theme */
+.dark-theme {
+    --bg-color: #333333;
+    --text-color: #ffffff;
+    --primary-color: #17a2b8;
+    --secondary-color: #ffc107;
+}
+
+/* Apply theme variables */
+body,
+#root,
+.app {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--primary-color);
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

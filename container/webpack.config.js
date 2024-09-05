@@ -37,8 +37,9 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
+                container: 'container@http://localhost:3000/remoteEntry.js',
                 firstChild: 'firstChild@http://localhost:3001/remoteEntry.js',
-                secondChild: 'secondChild@http://localhost:3002/remoteEntry.js',
+                secondChild: 'secondChild@http://localhost:3002/remoteEntry.js'
             },
             shared: {
                 'react': {
@@ -50,6 +51,9 @@ module.exports = {
                     requiredVersion: packageJson.dependencies['react-dom']
                 },
             },
+            exposes: {
+                './ThemeContext': './src/context/ThemeContext',
+            },
         }),
     ],
     devServer: {
@@ -57,6 +61,9 @@ module.exports = {
         port: 3000,
         hot: true,
         historyApiFallback: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+        },
     },
     devtool: isDevelopment ? 'inline-source-map' : 'source-map',
 };

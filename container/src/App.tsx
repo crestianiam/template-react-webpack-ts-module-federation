@@ -1,11 +1,25 @@
 import React, { Suspense } from 'react';
+import { ThemeProvider, useTheme } from 'container/ThemeContext';
+import './global.css';
+
 const FirstChildApp = React.lazy(() => import('firstChild/App'));
 const SecondChildApp = React.lazy(() => import('secondChild/App'));
 
 const App: React.FC = () => {
     return (
-        <div>
-            <h1>Hello, i am the container app!</h1>
+        <ThemeProvider>
+            <ThemedApp />
+        </ThemeProvider>
+    );
+};
+
+const ThemedApp: React.FC = () => {
+    const { theme, switchTheme } = useTheme();
+
+    return (
+        <div className={`app ${theme}-theme`}>
+            <h1>Hello, I am the container app!ssssaas</h1>
+            <button onClick={switchTheme}>Switch Theme</button>
             <Suspense fallback={<div>Loading First Child App...</div>}>
                 <FirstChildApp />
             </Suspense>
