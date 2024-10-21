@@ -40,6 +40,9 @@ module.exports = {
             exposes: {
                 './App': './src/App',
             },
+            remotes: {
+                container: 'container@http://localhost:3000/remoteEntry.js',
+            },
             shared: {
                 'react': {
                     singleton: true,

@@ -1,10 +1,19 @@
 import React, { Suspense } from 'react';
-import { ThemeProvider, useTheme } from 'container/ThemeContext';
 import './global.css';
+import FallbackRemote from './components/FallbackRemote';
+import { ThemeProvider, useTheme } from 'container/ThemeContext';
 
-const FirstChildApp = React.lazy(() => import('firstChild/App'));
-const SecondChildApp = React.lazy(() => import('secondChild/App'));
+const FirstChildApp = React.lazy(() =>
+    import("firstChild/App").catch(() => {
+        return { default: () => <FallbackRemote name='firstChild/App' /> };
+    })
+)
 
+const SecondChildApp = React.lazy(() =>
+    import("secondChild/App").catch(() => {
+        return { default: () => <FallbackRemote name='secondChild/App' /> };
+    })
+);
 const App: React.FC = () => {
     return (
         <ThemeProvider>
@@ -18,7 +27,7 @@ const ThemedApp: React.FC = () => {
 
     return (
         <div className={`app ${theme}-theme`}>
-            <h1>Hello, I am the container app!ssssaas</h1>
+            <h1>Hello, I am the container app!</h1>
             <button onClick={switchTheme}>Switch Theme</button>
             <Suspense fallback={<div>Loading First Child App...</div>}>
                 <FirstChildApp />
